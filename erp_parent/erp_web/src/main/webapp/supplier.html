@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>供应商管理</title>
+
+<!-- 引入Easyui.js样式 -->
+<link rel="stylesheet" type="text/css"
+	href="ui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="ui/themes/icon.css">
+<script type="text/javascript" src="ui/jquery.min.js"></script>
+<script type="text/javascript" src="ui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="ui/locale/easyui-lang-zh_CN.js"></script>
+
+<!-- 序列化json插件，提取表单数据 -->
+<script
+	src="https://cdn.bootcss.com/jquery.serializeJSON/2.9.0/jquery.serializejson.js"></script>
+
+<!-- 前端代码的封装 -->
+<script type="text/javascript" src="js/crud.js"></script>
+<script type="text/javascript" src="js/request.js"></script>
+
+<script type="text/javascript">
+	var name = 'supplier';//全局属性
+
+	$(function() {
+	/* 	if (Request['type'] == '1') {
+			document.title = "供应商管理";
+			listParam = "?t1.type=1";
+			saveParam = "?t.type=1";
+		}
+		if (Request['type'] == '2') {
+			document.title = "客户管理";
+			listParam = "?t1.type=2";
+			saveParam = "?t.type=2";
+		} */
+
+		$('#grid')
+				.datagrid(
+						{
+							columns : [ [
+									{
+										field : 'uuid',
+										title : '编号',
+										width : 100
+									},
+									{
+										field : 'name',
+										title : '名称',
+										width : 100
+									},
+									{
+										field : 'address',
+										title : '地址',
+										width : 100
+									},
+									{
+										field : 'contact',
+										title : '联系人',
+										width : 100
+									},
+									{
+										field : 'tele',
+										title : '电话',
+										width : 100
+									},
+									{
+										field : 'email',
+										title : 'E-MAIL',
+										width : 100
+									},
+									{
+										field : '-',
+										title : '操作',
+										width : 100,
+										formatter : function(value, row, index) {
+											return "<a href='javascript:void(0)' onclick='edit("
+													+ row.uuid
+													+ ")'>修改</a><a href='javascript:void(0)' onclick='dele("
+													+ row.uuid + ")'>删除</a>";
+										}
+									} ] ]
+						});
+	});
+</script>
+</head>
+
+<body>
+	<!------------------------------- Start --------------------------------->
+	<!-- 条件查询 -->
+	<form id="searchForm">
+		名称：<input name="t1.name"> 
+		地址：<input name="t1.address"> 
+		联系人：<input name="t1.contact"> 
+		电话:<input name="t1.tele">
+		E-MAIL：<input name="t1.email"> 
+		<button id="btnSearch" type="button">查询</button>
+	</form>
+
+	<!-- 数据查询 -->
+	<table id="grid"></table>
+
+	<!-- 添加修改部分 -->
+	<div id="editWindow" class="easyui-window" title="编辑"
+		style="width: 300px; height: 200px" data-options="closed:true">
+		<form id="editForm">
+			<input type="hidden" name="t.uuid">
+			<table>
+				<tr>
+					<td>名称</td>
+					<td><input name="t.name"></td>
+				</tr>
+				<tr>
+					<td>地址</td>
+					<td><input name="t.address"></td>
+				</tr>
+				<tr>
+					<td>联系人</td>
+					<td><input name="t.contact"></td>
+				</tr>
+				<tr>
+					<td>电话</td>
+					<td><input name="t.tele"></td>
+				</tr>
+				<tr>
+					<td>E-MAIL</td>
+					<td><input name="t.email"></td>
+				</tr>
+			</table>
+			<div align="center">
+				<button id="btnSave" type="button">保存</button>
+			</div>
+		</form>
+	</div>
+	<!------------------------------- End --------------------------------->
+</body>
+</html>

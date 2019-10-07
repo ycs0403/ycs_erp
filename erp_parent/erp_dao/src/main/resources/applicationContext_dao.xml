@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		">
+
+	<!-- 部门 -->
+	<bean id="iDepDao" class="cn.erp.dao.impl.DepDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 员工 -->
+	<bean id="iEmpDao" class="cn.erp.dao.impl.EmpDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 商品 -->
+	<bean id="iGoodsDao" class="cn.erp.dao.impl.GoodsDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 商品类型 -->
+	<bean id="iGoodsTypeDao" class="cn.erp.dao.impl.GoodsTypeDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 菜单管理 -->
+	<bean id="iMenuDao" class="cn.erp.dao.impl.MenuDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 供应商、客户管理 -->
+	<bean id="iSupplierDao" class="cn.erp.dao.impl.SupplierDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 供应商、客户管理 -->
+	<bean id="iOrderdetailDao" class="cn.erp.dao.impl.OrderdetailDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>
+	

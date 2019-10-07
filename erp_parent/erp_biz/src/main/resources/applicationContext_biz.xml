@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		">
+		
+	<!-- 部门 -->
+	<bean id="iDepBiz" class="cn.erp.biz.impl.DepBiz">
+		<property name="iDepDao" ref="iDepDao"></property>
+	</bean>
+	<!-- 员工 -->
+	<bean id="iEmpBiz" class="cn.erp.biz.impl.EmpBiz">
+		<property name="iEmpDao" ref="iEmpDao"></property>
+	</bean>
+	<!-- 商品 -->
+	<bean id="iGoodsBiz" class="cn.erp.biz.impl.GoodsBiz">
+		<property name="iGoodsDao" ref="iGoodsDao"></property>
+	</bean>
+	<!-- 商品类型 -->
+	<bean id="iGoodsTypeBiz" class="cn.erp.biz.impl.GoodsTypeBiz">
+		<property name="iGoodsTypeDao" ref="iGoodsTypeDao"></property>
+	</bean>
+	<!-- 商品 -->
+	<bean id="iMenuBiz" class="cn.erp.biz.impl.MenuBiz">
+		<property name="iMenuDao" ref="iMenuDao"></property>
+	</bean>
+	<!-- 供应商、客户管理 -->
+	<bean id="iSupplierBiz" class="cn.erp.biz.impl.SupplierBiz">
+		<property name="iSupplierDao" ref="iSupplierDao"></property>
+	</bean>
+	<!-- 订单明细管理 -->
+	<bean id="iOrderdetailBiz" class="cn.erp.biz.impl.OrderdetailBiz">
+		<property name="iOrderdetailDao" ref="iOrderdetailDao"></property>
+	</bean>
+
+</beans>
+	

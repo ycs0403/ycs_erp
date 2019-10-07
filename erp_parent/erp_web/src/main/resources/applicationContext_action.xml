@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		">
+		
+	<!-- 注入action scope="prototype"配置多列模式，在原来的单例模式上提高安全性 -->
+	<!-- 登录 -->
+	<bean id="loginAction" class="cn.erp.action.LoginAction"
+		scope="prototype">
+		<property name="iEmpBiz" ref="iEmpBiz"></property>
+	</bean>
+
+	<!-- 部门 -->
+	<bean id="depAction" class="cn.erp.action.DepAction"
+		scope="prototype">
+		<property name="iDepBiz" ref="iDepBiz"></property>
+	</bean>
+	<!-- 员工 -->
+	<bean id="empAction" class="cn.erp.action.EmpAction"
+		scope="prototype">
+		<property name="iEmpBiz" ref="iEmpBiz"></property>
+	</bean>
+	<!-- 商品 -->
+	<bean id="goodsAction" class="cn.erp.action.GoodsAction"
+		scope="prototype">
+		<property name="iGoodsBiz" ref="iGoodsBiz"></property>
+	</bean>
+	<!-- 商品类型 -->
+	<bean id="goodsTypeAction" class="cn.erp.action.GoodsTypeAction"
+		scope="prototype">
+		<property name="iGoodsTypeBiz" ref="iGoodsTypeBiz"></property>
+	</bean>
+	<!-- 菜单管理 -->
+	<bean id="menuAction" class="cn.erp.action.MenuAction"
+		scope="prototype">
+		<property name="iMenuBiz" ref="iMenuBiz"></property>
+	</bean>
+	<!-- 供应商、客户管理 -->
+	<bean id="supplierAction" class="cn.erp.action.SupplierAction"
+		scope="prototype">
+		<property name="iSupplierBiz" ref="iSupplierBiz"></property>
+	</bean>
+	<!-- 订单明细管理 -->
+	<bean id="orderdetailAction" class="cn.erp.action.OrderdetailAction"
+		scope="prototype">
+		<property name="iOrderdetailBiz" ref="iOrderdetailBiz"></property>
+	</bean>
+
+</beans>
+	
