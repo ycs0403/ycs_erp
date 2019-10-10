@@ -22,7 +22,7 @@ $(function() {
 								$(priceEdt.target).val(record.inprice);
 
 								//商品ID
-								var goodsuuidEdt=$('#grid').datagrid('getEditor',{index:isEditingRowIndex,field:'goodsuuid'});
+								var goodsuuidEdt = $('#grid').datagrid('getEditor',{index:isEditingRowIndex,field:'goodsuuid'});
 								alert(goodsuuidEdt);
 								$(goodsuuidEdt.target).val(record.uuid);
 
@@ -55,7 +55,7 @@ $(function() {
 						formatter : function(value, row, index) {
 							return "<a href='javascript:void(0)' onclick='edit("
 							+ row.uuid
-							+ ")'>修改</a><a href='javascript:void(0)' onclick='deleleRow("
+							+ ")'>修改</a><a href='javascript:void(0)' onclick='deleteRow("
 							+ index + ")'>删除</a>";
 						}
 					}
@@ -143,4 +143,21 @@ function bindGridEvent(){
 		//向表格加载数据
 		$('#grid').datagrid('loadData',data);
 	}
+	
+	/**
+	 * 供应商下拉列表
+	 * */
+/*	$('#supplier').combogrid({
+		url:'supplier_getList.action',
+		idField:'uuid',
+		textField:'name',
+		columns:[[
+			{field:'uuid',titld:'ID',width:100},
+			{field:'name',titld:'名称',width:100},
+			{field:'address',titld:'地址',width:100},
+			{field:'contact',titld:'联系人',width:100},
+			{field:'tele',titld:'电话',width:100},
+			{field:'type',titld:'类型',width:100}
+		]]
+	});*/
 }
