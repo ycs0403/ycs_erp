@@ -1,6 +1,4 @@
-function login(){
-	/*var userName=document.getElementById("signup_name").value;
-	var pwd=document.getElementById("signup_password").value;*/
+function login(){	
 	var formdata=$('#loginform').serializeJSON();
 	
 	$.ajax({

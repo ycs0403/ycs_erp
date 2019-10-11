@@ -45,9 +45,10 @@ public class EmpDao extends BaseDao<Emp> implements IEmpDao{
 		return dc;
 	}
 
-	
+	private String sql="";//定义一个常量
+
 	public Emp findByUserNameAndPwd(String userName, String pwd) {
-		String sql="from Emp where username=? and pwd=?";
+		sql="from Emp where username=? and pwd=?";
 		@SuppressWarnings("unchecked")
 		List<Emp> list=(List<Emp>) getHibernateTemplate().find(sql, userName,pwd);
 		if(list.size()>0) {
@@ -56,5 +57,11 @@ public class EmpDao extends BaseDao<Emp> implements IEmpDao{
 			return null;
 		}
 	}
-	
+
+	@Override
+	public void updatePwd_reset(Long uuid, String newPwd) {
+		sql="update emp set pwd=? where uuid=?";
+		this.getHibernateTemplate().bulkUpdate(sql, newPwd,uuid);
+	}
+
 }

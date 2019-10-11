@@ -326,7 +326,7 @@ function serverLogin() {
 	}
 	
 	$.ajax({
-		url:'emp_updateUserPwd.action',
+		url:'emp_updatePwd_reset.action',
 		dataType:'json',
 		type:'post',
 		data:{oldPwd:$oldpass.val(),newPwd:$newpass.val()},

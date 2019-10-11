@@ -24,13 +24,14 @@ public class LoginAction extends BaseAction<Emp>{
 
 	private CommonAction<Emp> commonAction=new CommonAction<Emp>();
 
-	private String userName;//登录名
+	private String username;//登录名
 	private String pwd;//密码
-	public String getUserName() {
-		return userName;
+
+	public String getUsername() {
+		return username;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getPwd() {
 		return pwd;
@@ -40,29 +41,27 @@ public class LoginAction extends BaseAction<Emp>{
 	}
 
 	/**
-	 * 描述:登录方法-应该获取到数据库的密码，并且转换
+	 * 描述:登录方法
+	 * 
 	 *@return
 	 */
 	public void Login() {
-		userName="admin";
-		pwd="3ef7164d1f6167cb9f2658c07d3c2f0a";
-		
+		username="sunwukong";
+		pwd="sunwukong";
 		try {
-			Emp emp=iEmpBiz.findByUserNameAndPwd(userName, pwd);
-			System.out.println("---"+userName+"***"+pwd);
+			Emp emp=iEmpBiz.findByUserNameAndPwd(username, pwd);
 			if(null == emp) {
 				commonAction.ajaxReturn(false, "登录失败，用户名或密码错误!");
 				return ;
 			}
 			//保存到session，表示用户已经登陆了
-				ActionContext.getContext().getSession().put("user", emp);//将emp对象放入session中
-				commonAction.ajaxReturn(true, "登录成功!");
+			ActionContext.getContext().getSession().put("user", emp);//将emp对象放入session中
+			commonAction.ajaxReturn(true, "登录成功!");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			commonAction.ajaxReturn(false, "登录失败!");
 		}
-		
 	}
 
 	/**
