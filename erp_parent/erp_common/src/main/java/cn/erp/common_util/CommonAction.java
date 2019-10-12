@@ -1,4 +1,4 @@
-package cn.erp.common;
+package cn.erp.common_util;
 
 import java.io.IOException;
 import java.util.HashMap;

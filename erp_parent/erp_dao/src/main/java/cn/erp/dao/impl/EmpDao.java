@@ -60,7 +60,7 @@ public class EmpDao extends BaseDao<Emp> implements IEmpDao{
 
 	@Override
 	public void updatePwd_reset(Long uuid, String newPwd) {
-		sql="update emp set pwd=? where uuid=?";
+		sql="update Emp set pwd=? where uuid=?";
 		this.getHibernateTemplate().bulkUpdate(sql, newPwd,uuid);
 	}
 

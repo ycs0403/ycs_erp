@@ -7,7 +7,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 
 import cn.erp.bizcommon.IBaseBiz;
-import cn.erp.common.CommonAction;
+import cn.erp.common_util.CommonAction;
 
 /**
  * @author 黑小子-余
@@ -174,7 +174,7 @@ public class BaseAction<T> {
 	
 	
 	/**
-	  * 描述:返回当前存在session中用户
+	  * 描述:返回当前存在session中用户，当前用户
 	 *@return
 	 */
 	public T getUser() {

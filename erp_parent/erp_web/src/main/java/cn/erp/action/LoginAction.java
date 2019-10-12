@@ -4,7 +4,8 @@ import com.opensymphony.xwork2.ActionContext;
 
 import cn.erp.actioncommon.BaseAction;
 import cn.erp.biz.IEmpBiz;
-import cn.erp.common.CommonAction;
+import cn.erp.common_util.CommonAction;
+import cn.erp.common_util.ErpException;
 import cn.erp.entity.Emp;
 
 /**
@@ -46,13 +47,18 @@ public class LoginAction extends BaseAction<Emp>{
 	 *@return
 	 */
 	public void Login() {
-		username="sunwukong";
-		pwd="sunwukong";
+		//管理员账号
+		
+		  String username="admin"; String pwd="3ef7164d1f6167cb9f2658c07d3c2f0a";
+		 
+		 
+		//username="sunwukong";
+		//pwd="sunwukong";
 		try {
 			Emp emp=iEmpBiz.findByUserNameAndPwd(username, pwd);
 			if(null == emp) {
 				commonAction.ajaxReturn(false, "登录失败，用户名或密码错误!");
-				return ;
+				throw new ErpException("登录失败"+username+"---"+pwd);
 			}
 			//保存到session，表示用户已经登陆了
 			ActionContext.getContext().getSession().put("user", emp);//将emp对象放入session中

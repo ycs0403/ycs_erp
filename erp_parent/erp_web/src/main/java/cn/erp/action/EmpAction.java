@@ -4,8 +4,8 @@ import com.opensymphony.xwork2.ActionContext;
 
 import cn.erp.actioncommon.BaseAction;
 import cn.erp.biz.IEmpBiz;
-import cn.erp.common.CommonAction;
-import cn.erp.common.ErpException;
+import cn.erp.common_util.CommonAction;
+import cn.erp.common_util.ErpException;
 import cn.erp.entity.Emp;
 
 /**
@@ -48,11 +48,11 @@ public class EmpAction extends BaseAction<Emp>{
 	}
 
 	/**
-	  * 描述:用户修改密码
+	  * 描述:管理员重置用户密码
 	 *@return
 	 */
 	public void update_reset() {
-		System.out.println("进入方法");
+		System.out.println("进入方法1");
 		try {
 			iEmpBiz.updatePwd_reset(getId(), newPwd);
 			System.out.println("当前用户的id："+getId()+"原密码："+oldPwd+"---新密码："+newPwd);
@@ -65,7 +65,7 @@ public class EmpAction extends BaseAction<Emp>{
 	}
 	
 	/**
-	 * 描述:管理员重置密码
+	 * 描述:用户修改密码
 	 *@return
 	 */
 	public void updateUserPwd() {

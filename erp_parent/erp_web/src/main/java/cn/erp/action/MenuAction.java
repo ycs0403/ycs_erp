@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSON;
 
 import cn.erp.actioncommon.BaseAction;
 import cn.erp.biz.IMenuBiz;
-import cn.erp.common.CommonAction;
+import cn.erp.common_util.CommonAction;
 import cn.erp.entity.Menu;
 
 /**

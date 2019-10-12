@@ -1,4 +1,4 @@
-
+ 
 window.onload = function(){
 	$('#loading-mask').fadeOut();
 }
@@ -326,7 +326,7 @@ function serverLogin() {
 	}
 	
 	$.ajax({
-		url:'emp_updatePwd_reset.action',
+		url:'emp_updateUserPwd.action',
 		dataType:'json',
 		type:'post',
 		data:{oldPwd:$oldpass.val(),newPwd:$newpass.val()},

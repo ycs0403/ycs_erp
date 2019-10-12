@@ -4,7 +4,7 @@ import org.apache.shiro.crypto.hash.Md5Hash;
 
 import cn.erp.biz.IEmpBiz;
 import cn.erp.bizcommon.impl.BaseBiz;
-import cn.erp.common.ErpException;
+import cn.erp.common_util.ErpException;
 import cn.erp.dao.IEmpDao;
 import cn.erp.entity.Emp;
 
@@ -22,10 +22,13 @@ public class EmpBiz extends BaseBiz<Emp> implements IEmpBiz{
 		this.iEmpDao = iEmpDao;
 		super.setiBaseDao(this.iEmpDao);
 	}
+	
+	private EmpBiz empBiz=new EmpBiz();
 
 	/**
 	 * 根据用户名和密码查询用户实体
 	 */
+	@Override
 	public Emp findByUserNameAndPwd(String userName, String pwd) {
 		// 对密码进行加密
 		Md5Hash md5=new Md5Hash(userName,pwd,2);
@@ -51,7 +54,7 @@ public class EmpBiz extends BaseBiz<Emp> implements IEmpBiz{
 	}
 	
 	/**
-	 * 修改用户密码
+	 *管理员重置用户密码
 	 */
 	@Override
 	public void updatePwd_reset(Long uuid, String newPwd) {
@@ -59,10 +62,11 @@ public class EmpBiz extends BaseBiz<Emp> implements IEmpBiz{
 		//保存新密码
 		Md5Hash md5_2=new Md5Hash(newPwd,emp.getUsername(),2);
 		emp.setPwd(md5_2.toString());
+		iEmpDao.updatePwd_reset(uuid, newPwd);
 	}
 
 	/**
-	 * 管理员修改密码
+	  * 员工修改密码
 	 *@param uuid   用户id
 	 *@param oldPwd 原密码
 	 *@param newPwd 新密码
@@ -72,12 +76,26 @@ public class EmpBiz extends BaseBiz<Emp> implements IEmpBiz{
 		Emp emp=iEmpDao.getPrimaryId(uuid);//拿到当前用户的uuid
 		//加密原密码
 		Md5Hash md5_1=new Md5Hash(oldPwd,emp.getUsername(),2);
-		if(emp.getPwd().equals(md5_1.toString())) {
-			throw new ErpException("原密码不正确"+emp.getPwd()+"---"+md5_1.toString());
+		if(!emp.getPwd().equals(md5_1.toString())) {
+			throw new ErpException("原密码不正确");
 		}
 		//加密新密码
-		Md5Hash md5_2=new Md5Hash(newPwd,emp.getUsername(),2);
-		emp.setPwd(md5_2.toString());
+		
+		iEmpDao.updatePwd_reset(uuid, empBiz.encrypt(newPwd,emp.getUsername()));
+	}
+	
+	
+	private int hashIterations = 2;
+	
+	/**
+	 * 加密
+	 * @param source
+	 * @param salt
+	 * @return
+	 */
+	private String encrypt(String source, String salt){
+		Md5Hash md5 = new Md5Hash(source, salt, hashIterations);
+		return md5.toString();
 	}
 
 }
