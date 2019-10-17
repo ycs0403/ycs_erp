@@ -49,13 +49,15 @@ public class LoginAction extends BaseAction<Emp>{
 	public void Login() {
 		//管理员账号
 		
-		  String username="admin"; String pwd="3ef7164d1f6167cb9f2658c07d3c2f0a";
+		  String username="admin"; 
+		  //String pwd="admin";
 		 
 		 
 		//username="sunwukong";
 		//pwd="sunwukong";
 		try {
 			Emp emp=iEmpBiz.findByUserNameAndPwd(username, pwd);
+			System.out.println("用户名："+username+"密码:"+pwd);
 			if(null == emp) {
 				commonAction.ajaxReturn(false, "登录失败，用户名或密码错误!");
 				throw new ErpException("登录失败"+username+"---"+pwd);

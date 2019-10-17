@@ -23,7 +23,7 @@ public class EmpBiz extends BaseBiz<Emp> implements IEmpBiz{
 		super.setiBaseDao(this.iEmpDao);
 	}
 	
-	private EmpBiz empBiz=new EmpBiz();
+	
 
 	/**
 	 * 根据用户名和密码查询用户实体
@@ -65,6 +65,8 @@ public class EmpBiz extends BaseBiz<Emp> implements IEmpBiz{
 		iEmpDao.updatePwd_reset(uuid, newPwd);
 	}
 
+	private EmpBiz empBiz=null;
+	
 	/**
 	  * 员工修改密码
 	 *@param uuid   用户id
@@ -80,10 +82,9 @@ public class EmpBiz extends BaseBiz<Emp> implements IEmpBiz{
 			throw new ErpException("原密码不正确");
 		}
 		//加密新密码
-		
 		iEmpDao.updatePwd_reset(uuid, empBiz.encrypt(newPwd,emp.getUsername()));
+		
 	}
-	
 	
 	private int hashIterations = 2;
 	
