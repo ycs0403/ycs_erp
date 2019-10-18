@@ -43,6 +43,10 @@
 	<bean id="iOrderdetailBiz" class="cn.erp.biz.impl.OrderdetailBiz">
 		<property name="iOrderdetailDao" ref="iOrderdetailDao"></property>
 	</bean>
+	<!-- 订单管理 -->
+	<bean id="iOrdersBiz" class="cn.erp.biz.impl.OrdersBiz">
+		<property name="iOrdersDao" ref="iOrdersDao"></property>
+	</bean>
 
 </beans>
 	

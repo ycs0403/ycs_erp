@@ -71,9 +71,7 @@ $(function() {
 						width : 100,
 						formatter : function(value, row, index) {
 							if(row.num!='总金额'){
-								return "<a href='javascript:void(0)' onclick='edit("
-								+ row.uuid
-								+ ")'>修改</a><a href='javascript:void(0)' onclick='deleteRow("
+								return "<a href='javascript:void(0)' onclick='deleteRow("
 								+ index + ")'>删除</a>";
 							}
 						}
@@ -106,8 +104,44 @@ $(function() {
 					},
 					{
 						iconCls : 'icon-save',
-						text : '保存',
-						handler : function() {}
+						text : '提交',
+						handler : function() {
+							if(isEditingRowIndex >= -1){
+								//如果存在编辑行，则关闭编辑状态
+								$('#grid').datagrid('endEdit',isEditingRowIndex);
+							}
+							//获取所有行的明细
+							var rows=$('#grid').datagrid('getRows');
+							if(rows.lenght==0){
+								return ;
+							}
+							//转换为Json字符串
+							var formdata=$('#orderFrom').serializeJSON();
+							if(formdata['t.supplieruuid']==''){
+								$.messager.alert('提示',"请选择供应商",'info');
+								return ;
+							}
+
+							//将表格数据转换为json字符串
+							formdata.json=JSON.stringify(rows);
+							//formdata['json']=JSON.stringify($('#grid').datagrid('getRows'));上面代替，这里废弃
+							$.ajax({
+								type:'post',
+								url:'orders_add',
+								dataType:'json',
+								data:formdata,
+								success:function(value){
+									$.messager.alert('提示',value.message,'info',function(){
+										if(value.success){
+											//清空供应商
+											$('#supplier').combogrid('clear');
+											//清空表格的行脚
+											$('#grid').datagrid('loadData',{total:0,rows:[]});
+										}
+									});
+								}
+							});
+						}
 					}
 					],
 					//点击某一行的时候进入编辑状态
@@ -122,8 +156,26 @@ $(function() {
 						bindGridEvent();
 					}
 			});
-});
 
+	/**
+	 * 供应商下拉列表
+	 * */
+	$('#supplier').combogrid({
+		url:'supplier_getList?t.type=1',//type条件没用
+		idField:'uuid',
+		textField:'name',
+		panelWidth:605,
+		columns:[[
+			{field:'uuid',title:'ID',width:50},
+			{field:'name',title:'名称',width:100},
+			{field:'address',title:'地址',width:100},
+			{field:'contact',title:'联系人',width:100},
+			{field:'tele',title:'电话',width:100},
+			{field:'email',title:'邮件地址',width:100},
+			{field:'type',title:'类型',width:100}
+			]]
+	});
+});
 
 /* 
 	计算
@@ -204,21 +256,3 @@ function sum(){
 	//设置合计金额到行脚里去
 	$('#grid').datagrid('reloadFooter',[{num: '总金额', money: total}]);
 }
-
-/**
- * 供应商下拉列表
- * */
-/*	$('#supplier').combogrid({
-		url:'supplier_getList.action',
-		idField:'uuid',
-		textField:'name',
-		columns:[[
-			{field:'uuid',titld:'ID',width:100},
-			{field:'name',titld:'名称',width:100},
-			{field:'address',titld:'地址',width:100},
-			{field:'contact',titld:'联系人',width:100},
-			{field:'tele',titld:'电话',width:100},
-			{field:'type',titld:'类型',width:100}
-		]]
-	});*/
-

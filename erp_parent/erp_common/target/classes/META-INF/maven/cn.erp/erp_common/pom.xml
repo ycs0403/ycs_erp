@@ -8,4 +8,11 @@
   <artifactId>erp_common</artifactId>
   <name>erp_common</name>
   <description>这是公共层模块</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>cn.erp</groupId>
+  		<artifactId>erp_entity</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>

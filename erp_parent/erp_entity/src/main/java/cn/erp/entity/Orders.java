@@ -20,6 +20,8 @@
 package cn.erp.entity;
 
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -83,7 +85,7 @@ public class Orders implements java.io.Serializable {
 
     /** 合计金额 */
     @Column(name = "totalmoney", nullable = true, length = 10)
-    private Long totalmoney;
+    private Double totalmoney;
 
     /** 采购: 0:未审核 1:已审核, 2:已确认, 3:已入库；销售：0:未出库 1:已出库 */
     @Column(name = "state", nullable = true, length = 1)
@@ -92,8 +94,20 @@ public class Orders implements java.io.Serializable {
     /** 运单号 */
     @Column(name = "waybillsn", nullable = true)
     private Long waybillsn;
+    
+	/** 
+	 * 一个orders对应多个详细
+	 **/
+    private List<Orderdetail> orderdetail;
+    
+    public List<Orderdetail> getOrderdetail() {
+		return orderdetail;
+	}
+	public void setOrderdetail(List<Orderdetail> orderdetail) {
+		this.orderdetail = orderdetail;
+	}
 
-    /**
+	/**
      * 获取编号
      * 
      * @return 编号
@@ -307,7 +321,7 @@ public class Orders implements java.io.Serializable {
      * 
      * @return 合计金额
      */
-    public Long getTotalmoney() {
+    public Double getTotalmoney() {
         return this.totalmoney;
     }
 
@@ -317,7 +331,7 @@ public class Orders implements java.io.Serializable {
      * @param totalmoney
      *          合计金额
      */
-    public void setTotalmoney(Long totalmoney) {
+    public void setTotalmoney(Double totalmoney) {
         this.totalmoney = totalmoney;
     }
 

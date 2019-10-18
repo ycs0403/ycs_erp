@@ -14,7 +14,7 @@
 		http://www.springframework.org/schema/aop 
 		http://www.springframework.org/schema/aop/spring-aop.xsd
 		">
-		
+
 	<!-- 注入action scope="prototype"配置多列模式，在原来的单例模式上提高安全性 -->
 	<!-- 登录 -->
 	<bean id="loginAction" class="cn.erp.action.LoginAction"
@@ -53,9 +53,14 @@
 		<property name="iSupplierBiz" ref="iSupplierBiz"></property>
 	</bean>
 	<!-- 订单明细管理 -->
-	<bean id="orderdetailAction" class="cn.erp.action.OrderdetailAction"
-		scope="prototype">
+	<bean id="orderdetailAction"
+		class="cn.erp.action.OrderdetailAction" scope="prototype">
 		<property name="iOrderdetailBiz" ref="iOrderdetailBiz"></property>
+	</bean>
+	<!-- 订单管理 -->
+	<bean id="ordersAction" class="cn.erp.action.OrdersAction"
+		scope="prototype">
+		<property name="iOrdersBiz" ref="iOrdersBiz"></property>
 	</bean>
 
 </beans>

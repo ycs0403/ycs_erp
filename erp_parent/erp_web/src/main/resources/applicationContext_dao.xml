@@ -39,8 +39,12 @@
 	<bean id="iSupplierDao" class="cn.erp.dao.impl.SupplierDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<!-- 供应商、客户管理 -->
+	<!-- 订单明细管理 -->
 	<bean id="iOrderdetailDao" class="cn.erp.dao.impl.OrderdetailDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<!-- 订单管理 -->
+	<bean id="iOrdersDao" class="cn.erp.dao.impl.OrdersDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 </beans>

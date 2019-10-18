@@ -21,5 +21,7 @@
 		<action name="supplier_*" class="supplierAction" method="{1}"></action>
 		<!-- 订单明细管理 -->
 		<action name="orderdetail_*" class="orderdetailAction" method="{1}"></action>
+		<!-- 订单管理 -->
+		<action name="orders_*" class="ordersAction" method="{1}"></action>
 	</package>
 </struts>

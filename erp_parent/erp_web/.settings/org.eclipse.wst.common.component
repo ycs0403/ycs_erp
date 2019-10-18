@@ -10,10 +10,10 @@
         <dependent-module archiveName="erp_dao-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/erp_dao/erp_dao">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="erp_entity-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/erp_entity/erp_entity">
+        <dependent-module archiveName="erp_common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/erp_common/erp_common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="erp_common-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/erp_common/erp_common">
+        <dependent-module archiveName="erp_entity-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/erp_entity/erp_entity">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="erp_web"/>

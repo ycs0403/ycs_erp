@@ -1,14 +1,16 @@
 package cn.erp.actioncommon;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.opensymphony.xwork2.ActionContext;
 
 import cn.erp.bizcommon.IBaseBiz;
 import cn.erp.common_util.CommonAction;
+import cn.erp.entity.Emp;
 
 /**
  * @author 黑小子-余
@@ -26,6 +28,8 @@ public class BaseAction<T> {
 	}
 
 	private CommonAction<T> commonAction=new CommonAction<T>();//调用公共通用
+
+	private Map<String, Object> map=new HashMap<String, Object>();
 
 	private T t1;//参数对象1
 	private T t2;//参数对象2
@@ -101,7 +105,7 @@ public class BaseAction<T> {
 	 * 描述:添加
 	 *@return
 	 */
-	private T t;
+	private T t;//泛型对象
 	public T getT() {
 		return t;
 	}
@@ -109,15 +113,18 @@ public class BaseAction<T> {
 		this.t = t;
 	}
 	public void add() {
+		System.out.println("进入add"+t);
 		try {
 			iBaseBiz.add(t);
-			commonAction.json(t);
-			commonAction.ajaxReturn(true, "增加成功");
+			map.put("success", true);
+			map.put("message", "新增成功");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			commonAction.ajaxReturn(true, "发生异常");
+			map.put("success", false);
+			map.put("message", "新增失败");
 		}
+		commonAction.write(JSON.toJSONString(map));
 	}
 
 	/**
@@ -132,15 +139,18 @@ public class BaseAction<T> {
 		this.id = id;
 	}
 	public void delete() {
+		System.out.println("进入delete"+id);
 		try {
 			iBaseBiz.delete(id);
-			System.out.println("id:"+id);
-			commonAction.ajaxReturn(true, "删除成功");
+			map.put("success", true);
+			map.put("message", "删除成功");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			commonAction.ajaxReturn(true, "发生异常");
+			map.put("success", false);
+			map.put("message", "删除失败");
 		}
+		commonAction.write(JSON.toJSONString(map));
 	}
 
 	/**
@@ -150,7 +160,12 @@ public class BaseAction<T> {
 	public void getPrimaryId() {
 		try {
 			T t= iBaseBiz.getPrimaryId(id);
-			commonAction.write(commonAction.json(t));
+			String jsonString =JSON.toJSONStringWithDateFormat(t, "yyyy-MM-dd");
+			System.out.println("转换前："+jsonString);
+
+			String jsonStringAfter=commonAction.mapJson(jsonString, "t");
+			System.out.println("转换后："+jsonStringAfter);
+			commonAction.write(jsonStringAfter);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -162,23 +177,26 @@ public class BaseAction<T> {
 	 *@return
 	 */
 	public void update() {
+		System.out.println("进入update"+t);
 		try {
 			iBaseBiz.update(t);
-			commonAction.json(t);
-			commonAction.ajaxReturn(true, "修改成功");
+			map.put("success", true);
+			map.put("message", "修改成功");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			commonAction.ajaxReturn(false, "发生异常");
+			map.put("success", false);
+			map.put("message", "修改失败");
 		}
+		commonAction.write(JSON.toJSONString(map));
 	}
-	
-	
+
+
 	/**
-	  * 描述:返回当前存在session中用户，当前用户
+	 * 描述:返回当前存在session中用户，当前用户
 	 *@return
 	 */
-	public T getUser() {
-		return t;
+	public Emp getUser() {
+		return (Emp) ActionContext.getContext().getSession().get("user");
 	}
 }

@@ -4,7 +4,7 @@
 <hibernate-mapping>
 	<class name="cn.erp.entity.Orders" table="orders">
 		<id name="uuid">
-		<!-- 主键序列生成策略 -->
+			<!-- 主键序列生成策略 -->
 			<generator class="org.hibernate.id.SequenceGenerator">
 				<param name="sequence">ORDERS_SEQ</param>
 			</generator>
@@ -22,6 +22,14 @@
 		<property name="totalmoney" />
 		<property name="state" />
 		<property name="waybillsn" />
+
+		<!-- 一个订单多个详细 -->
+		<!-- cascade="save-update"级联更新 -->
+		<bag name="orderdetail" order-by="uuid" cascade="save-update">
+			<key column="ordersuuid"></key>
+			<one-to-many class="cn.erp.entity.Orderdetail" />
+		</bag>
+
 	</class>
-	
+
 </hibernate-mapping>

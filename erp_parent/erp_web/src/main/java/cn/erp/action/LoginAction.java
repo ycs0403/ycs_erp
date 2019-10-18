@@ -50,7 +50,7 @@ public class LoginAction extends BaseAction<Emp>{
 		//π‹¿Ì‘±’À∫≈
 		
 		  String username="admin"; 
-		  //String pwd="admin";
+		  String pwd="admin";
 		 
 		 
 		//username="sunwukong";

@@ -4,7 +4,7 @@
 <hibernate-mapping>
 	<class name="cn.erp.entity.Orderdetail" table="orderdetail">
 		<id name="uuid">
-		<!-- 主键序列生成策略 -->
+			<!-- 主键序列生成策略 -->
 			<generator class="org.hibernate.id.SequenceGenerator">
 				<param name="sequence">ORDERDETAIL_SEQ</param>
 			</generator>
@@ -18,7 +18,13 @@
 		<property name="ender" />
 		<property name="storeuuid" />
 		<property name="state" />
-		<property name="ordersuuid" />
+		
+		<!--废弃 <property name="ordersuuid" /> -->
+
+		<!-- 多对一 -->
+		<many-to-one name="orders" class="cn.erp.entity.Orders"
+			column="ordersuuid">
+		</many-to-one>
 	</class>
-	
+
 </hibernate-mapping>
