@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cn.erp.entity.Emp" table="emp">
+		<id name="uuid">
+			<!-- 主键序列生成策略 -->
+			<generator class="org.hibernate.id.SequenceGenerator">
+				<param name="sequence">EMP_SEQ</param>
+			</generator>
+		</id>
+		<property name="username" />
+		<property name="pwd" />
+		<property name="name" />
+		<property name="gender" />
+		<property name="email" />
+		<property name="tele" />
+		<property name="address" />
+		<property name="birthday" />
+		<!-- <property name="depuuid" /> -->
+
+		<!-- 关联部门 多对一 一个员工对应多个部门 -->
+		<many-to-one name="dep" class="cn.erp.entity.Dep"
+			column="depuuid" not-found="ignore"></many-to-one>
+	</class>
+
+</hibernate-mapping>

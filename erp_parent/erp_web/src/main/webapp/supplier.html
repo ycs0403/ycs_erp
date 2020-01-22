@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>供应商管理</title>
+
+<!-- 引入Easyui.js样式 -->
+<link rel="stylesheet" type="text/css"
+	href="ui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="ui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="ui/table.css">
+<script type="text/javascript" src="ui/jquery.min.js"></script>
+<script type="text/javascript" src="ui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="ui/locale/easyui-lang-zh_CN.js"></script>
+
+<!-- 序列化json插件，提取表单数据 -->
+<script src="adminjs/jquery.serializejson.min.js"></script>
+
+<!-- 前端代码的封装 -->
+<script type="text/javascript" src="js/common_js/request.js"></script>
+<script type="text/javascript" src="js/common_js/crud.js"></script>
+<script type="text/javascript" src="js/supplier.js"></script>
+
+<script type="text/javascript">
+	var name = 'supplier';//全局属性
+
+</script>
+</head>
+
+<body>
+	<!------------------------------- Start --------------------------------->
+	<!-- 条件查询 -->
+	<form id="searchForm">
+		<!-- <label> 名称：</label><input name="t1.name" class="easyui-combobox"
+			style="width: 100px"
+			data-options="textField:'name',valueField:'name',url:'supplier_getPageList'+ listParam "> -->
+		<label> 名称：</label><input name="t1.name"/>
+		<label>地址：</label><input name="t1.address" id="vv"
+			class="easyui-validatebox"> <label>联系人：</label><input
+			name="t1.contact" id="vv" class="easyui-validatebox"> <label>电话：</label><input
+			name="t1.tele" id="vv" class="easyui-validatebox"><br> <label>E-MAIL：</label><input
+			name="t1.email" id="vv" class="easyui-validatebox">
+		<button id="btnSearch" type="button">查询</button>
+	</form>
+
+	<!-- 数据查询 -->
+	<table id="grid"></table>
+
+	<!-- 添加修改部分 -->
+	<div id="editWindow" class="easyui-window" title="编辑"
+		style="width: 300px; height: 200px" data-options="closed:true">
+		<form id="editForm">
+			<input type="hidden" name="t.uuid">
+			<table>
+				<tr>
+					<td>名称</td>
+					<td><input name="t.name"></td>
+				</tr>
+				<tr>
+					<td>地址</td>
+					<td><input name="t.address"></td>
+				</tr>
+				<tr>
+					<td>联系人</td>
+					<td><input name="t.contact"></td>
+				</tr>
+				<tr>
+					<td>电话</td>
+					<td><input name="t.tele"></td>
+				</tr>
+				<tr>
+					<td>E-MAIL</td>
+					<td><input name="t.email"></td>
+				</tr>
+			</table>
+			<div align="center">
+				<button id="btnSave" type="button">保存</button>
+			</div>
+		</form>
+	</div>
+	<!------------------------------- End --------------------------------->
+</body>
+</html>

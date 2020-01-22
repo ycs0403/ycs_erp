@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		">
+
+	<!-- 部门 -->
+	<bean id="iDepBiz" class="cn.erp.biz.impl.DepBiz">
+		<property name="iDepDao" ref="iDepDao"></property>
+	</bean>
+	
+	<!-- 员工 -->
+	<bean id="iEmpBiz" class="cn.erp.biz.impl.EmpBiz">
+		<property name="iEmpDao" ref="iEmpDao"></property>
+	</bean>
+	
+	<!-- 商品 -->
+	<bean id="iGoodsBiz" class="cn.erp.biz.impl.GoodsBiz">
+		<property name="iGoodsDao" ref="iGoodsDao"></property>
+	</bean>
+	
+	<!-- 商品类型 -->
+	<bean id="iGoodsTypeBiz" class="cn.erp.biz.impl.GoodsTypeBiz">
+		<property name="iGoodsTypeDao" ref="iGoodsTypeDao"></property>
+	</bean>
+	
+	<!-- 菜单 -->
+	<bean id="iMenuBiz" class="cn.erp.biz.impl.MenuBiz">
+		<property name="iMenuDao" ref="iMenuDao"></property>
+	</bean>
+	
+	<!-- 供应商、客户管理 -->
+	<bean id="iSupplierBiz" class="cn.erp.biz.impl.SupplierBiz">
+		<property name="iSupplierDao" ref="iSupplierDao"></property>
+	</bean>
+	
+	<!-- 订单明细管理 -->
+	<bean id="iOrderdetailBiz" class="cn.erp.biz.impl.OrderdetailBiz">
+		<property name="iOrderdetailDao" ref="iOrderdetailDao"></property>
+	</bean>
+	
+	<!-- 订单管理 -->
+	<bean id="iOrdersBiz" class="cn.erp.biz.impl.OrdersBiz">
+		<property name="iOrdersDao" ref="iOrdersDao"></property>
+		<!-- 员工管理 -->
+		<property name="iEmpDao" ref="iEmpDao"></property>
+		<!-- 供应商、客户管理 -->
+		<property name="iSupplierDao" ref="iSupplierDao"></property>
+	</bean>
+	
+	<!-- 仓库管理 -->
+	<bean id="iStoreBiz" class="cn.erp.biz.impl.StoreBiz">
+		<property name="iStoreDao" ref="iStoreDao"></property>
+	</bean>
+	
+	<!-- 仓库操作管理 -->
+	<bean id="iStoreOperBiz" class="cn.erp.biz.impl.StoreOperBiz">
+		<property name="iStoreOperDao" ref="iStoreOperDao"></property>
+	</bean>
+	
+	<!-- 角色管理 -->
+	<bean id="iRoleBiz" class="cn.erp.biz.impl.RoleBiz">
+		<property name="iRoleDao" ref="iRoleDao"></property>
+	</bean>
+	
+	<!-- 角色菜单管理 -->
+	<bean id="iRoleMenuBiz" class="cn.erp.biz.impl.RoleMenuBiz">
+		<property name="iRoleMenuDao" ref="iRoleMenuDao"></property>
+	</bean>
+	
+	<!-- 仓库库存管理 -->
+	<bean id="iStoredetailBiz" class="cn.erp.biz.impl.StoredetailBiz">
+		<property name="iStoredetailDao" ref="iStoredetailDao"></property>
+	</bean>
+	
+	<!-- 盘盈盘亏管理 -->
+	<bean id="iInventoryBiz" class="cn.erp.biz.impl.InventoryBiz">
+		<property name="iInventoryDao" ref="iInventoryDao"></property>
+	</bean>
+	
+	<!-- 工序完工记录表管理 -->
+	<bean id="iXsopHistBiz" class="cn.erp.biz.impl.XsopHistBiz">
+		<property name="iXsopHistDao" ref="iXsopHistDao"></property>
+	</bean>
+	
+	<!-- 退货订单管理 -->
+	<bean id="iReturnordersBiz" class="cn.erp.biz.impl.ReturnordersBiz">
+		<property name="iReturnordersDao" ref="iReturnordersDao"></property>
+	</bean>
+	
+	<!-- 退货订单明细管理 -->
+	<bean id="iReturnorderdetailBiz" class="cn.erp.biz.impl.ReturnorderdetailBiz">
+		<property name="iReturnorderdetailDao" ref="iReturnorderdetailDao"></property>
+	</bean>
+	
+</beans>
+	

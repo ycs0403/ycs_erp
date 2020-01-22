@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		">
+
+	<!-- spring 默认scope 是单例模式，这样只会创建一个Action对象，每次访问都是同一个Action对象，数据不安全
+                注入action scope="prototype"配置多例模式，在原来的单例模式上提高安全性 -->
+	<!-- 登录 -->
+	<bean id="loginAction" class="cn.erp.action.LoginAction"
+		scope="prototype">
+		<property name="iEmpBiz" ref="iEmpBiz"></property>
+	</bean>
+
+	<!-- 部门 -->
+	<bean id="depAction" class="cn.erp.action.DepAction"
+		scope="prototype">
+		<property name="iDepBiz" ref="iDepBiz"></property>
+	</bean>
+	
+	<!-- 员工 -->
+	<bean id="empAction" class="cn.erp.action.EmpAction"
+		scope="prototype">
+		<property name="iEmpBiz" ref="iEmpBiz"></property>
+	</bean>
+	
+	<!-- 商品 -->
+	<bean id="goodsAction" class="cn.erp.action.GoodsAction"
+		scope="prototype">
+		<property name="iGoodsBiz" ref="iGoodsBiz"></property>
+	</bean>
+	
+	<!-- 商品类型 -->
+	<bean id="goodsTypeAction" class="cn.erp.action.GoodsTypeAction"
+		scope="prototype">
+		<property name="iGoodsTypeBiz" ref="iGoodsTypeBiz"></property>
+	</bean>
+	
+	<!-- 菜单管理 -->
+	<bean id="menuAction" class="cn.erp.action.MenuAction"
+		scope="prototype">
+		<property name="iMenuBiz" ref="iMenuBiz"></property>
+	</bean>
+	
+	<!-- 供应商、客户管理 -->
+	<bean id="supplierAction" class="cn.erp.action.SupplierAction"
+		scope="prototype">
+		<property name="iSupplierBiz" ref="iSupplierBiz"></property>
+	</bean>
+	
+	<!-- 订单明细管理 -->
+	<bean id="orderdetailAction"
+		class="cn.erp.action.OrderdetailAction" scope="prototype">
+		<property name="iOrderdetailBiz" ref="iOrderdetailBiz"></property>
+	</bean>
+	
+	<!-- 订单管理 -->
+	<bean id="ordersAction" class="cn.erp.action.OrdersAction"
+		scope="prototype">
+		<property name="iOrdersBiz" ref="iOrdersBiz"></property>
+	</bean>
+	
+	<!-- 仓库管理 -->
+	<bean id="storeAction" class="cn.erp.action.StoreAction"
+		scope="prototype">
+		<property name="iStoreBiz" ref="iStoreBiz"></property>
+	</bean>
+	
+	<!-- 仓库详细管理 -->
+	<bean id="storeOperAction" class="cn.erp.action.StoreOperAction"
+		scope="prototype">
+		<property name="iStoreOperBiz" ref="iStoreOperBiz"></property>
+	</bean>
+	
+	<!-- 角色管理 -->
+	<bean id="roleAction" class="cn.erp.action.RoleAction"
+		scope="prototype">
+		<property name="iRoleBiz" ref="iRoleBiz"></property>
+	</bean>
+	
+	<!-- 角色菜单管理 -->
+	<bean id="roleMenuAction" class="cn.erp.action.RoleMenuAction"
+		scope="prototype">
+		<property name="iRoleMenuBiz" ref="iRoleMenuBiz"></property>
+	</bean>
+	
+	<!-- 仓库库存管理 -->
+	<bean id="storedetailAction" class="cn.erp.action.StoredetailAction"
+		scope="prototype">
+		<property name="iStoredetailBiz" ref="iStoredetailBiz"></property>
+	</bean>
+	
+	<!-- 盘盈盘亏管理  -->
+	<bean id="inventoryAction" class="cn.erp.action.InventoryAction"
+		scope="prototype">
+		<property name="iInventoryBiz" ref="iInventoryBiz"></property>
+	</bean>
+	
+	<!-- 工序完工记录表管理  -->
+	<bean id="xsopHistAction" class="cn.erp.action.XsopHistAction"
+		scope="prototype">
+		<property name="iXsopHistBiz" ref="iXsopHistBiz"></property>
+	</bean>
+	
+	<!-- 退货订单管理  -->
+	<bean id="returnordersAction" class="cn.erp.action.ReturnordersAction"
+		scope="prototype">
+		<property name="iReturnordersBiz" ref="iReturnordersBiz"></property>
+	</bean>
+	
+	<!-- 退货订单明细管理  -->
+	<bean id="returnorderdetailAction" class="cn.erp.action.ReturnorderdetailAction"
+		scope="prototype">
+		<property name="iReturnorderdetailBiz" ref="iReturnorderdetailBiz"></property>
+	</bean>
+	
+</beans>
+	
