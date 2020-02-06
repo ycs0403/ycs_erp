@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>管理重置员工密码</title>
+
+<!-- 引入Easyui.js样式 -->
+<link rel="stylesheet" type="text/css"
+	href="ui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="ui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="ui/table.css">
+<script type="text/javascript" src="ui/jquery.min.js"></script>
+<script type="text/javascript" src="ui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="ui/locale/easyui-lang-zh_CN.js"></script>
+
+<!-- 序列化json插件，提取表单数据 -->
+<script src="adminjs/jquery.serializejson.min.js"></script>
+
+<!-- 前端代码的封装 -->
+<script type="text/javascript" src="js/common_js/date.js"></script>
+<script type="text/javascript" src="js/login_js/pwd.js"></script>
+
+</head>
+
+<body>
+	<!-- 显示数据 -->
+	<table id="grid"></table>
+
+	<div id="updatePwdWindow" class="easyui-window" style="padding: 8px;">
+		<form id="updatePwdForm">
+			<input name="id" type="hidden">
+			<table>
+				<tr>
+					<td>新密码：</td>
+					<td><input name="newPwd" id="txtPwd" type="password"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

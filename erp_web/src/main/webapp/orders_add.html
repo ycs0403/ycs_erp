@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>采购申请</title>
+
+<!-- 引入Easyui.js样式 -->
+<link rel="stylesheet" type="text/css"
+	href="ui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="ui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="ui/table.css">
+<script type="text/javascript" src="ui/jquery.min.js"></script>
+<script type="text/javascript" src="ui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="ui/locale/easyui-lang-zh_CN.js"></script>
+
+<!-- 序列化json插件，提取表单数据 -->
+<script src="adminjs/jquery.serializejson.min.js"></script>
+
+<!-- 前端代码的封装 -->
+<script type="text/javascript" src="js/order_add.js"></script>
+
+<script type="text/javascript">
+	var name = 'order';//全局属性
+</script>
+
+</head>
+<body>
+	<!------------------------------- Start --------------------------------->
+
+	<!-- 供应商 -->
+	<form id="orderFrom">
+		供应商:<input id="supplier" name="t.supplieruuid" style="width: 200px">
+	</form>
+	
+	<!-- 数据查询 -->
+	<table id="ordersGrid"></table>
+
+	<!------------------------------- End --------------------------------->
+</body>
+</html>

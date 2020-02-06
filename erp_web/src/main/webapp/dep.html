@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>部门管理</title>
+
+<!-- 引入Easyui.js样式 -->
+<link rel="stylesheet" type="text/css"
+	href="ui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="ui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="ui/table.css">
+<script type="text/javascript" src="ui/jquery.min.js"></script>
+<script type="text/javascript" src="ui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="ui/locale/easyui-lang-zh_CN.js"></script>
+
+<!-- 序列化json插件，提取表单数据 -->
+<script src="adminjs/jquery.serializejson.min.js"></script>
+
+<!-- 前端代码的封装 -->
+<script type="text/javascript" src="js/common_js/crud.js"></script>
+<script type="text/javascript" src="js/dep.js"></script>
+
+<script type="text/javascript">
+	var name = 'dep';//全局属性
+	
+</script>
+</head>
+
+<body>
+	<!------------------------------- Start --------------------------------->
+	<!-- 条件查询 -->
+	<form id="searchForm">
+		部门名称：<input name="t1.name"> 部门电话:<input name="t1.tele">
+		<button id="btnSearch" type="button">查询</button>
+	</form>
+
+	<!-- 数据查询列表 -->
+	<table id="grid"></table>
+
+	<!-- 添加修改部分 -->
+	<div id="editWindow" class="easyui-window" title="部门编辑"
+		style="width: 300px; height: 200px" data-options="closed:true">
+		<form id="editForm">
+			<input type="hidden" name="t.uuid">
+			<table>
+				<tr>
+					<td>部门名称</td>
+					<td><input name="t.name"></td>
+				</tr>
+				<tr>
+					<td>部门电话</td>
+					<td><input name="t.tele"></td>
+				</tr>
+			</table>
+			<div align="center">
+				<button id="btnSave" type="button">保存</button>
+			</div>
+		</form>
+	</div>
+	<!------------------------------- End --------------------------------->
+</body>
+</html>
