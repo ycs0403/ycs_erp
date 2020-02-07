@@ -1,5 +1,6 @@
 package cn.erp.test;
 
+import org.junit.jupiter.api.Test;
 
 public class SortTest {
 
@@ -31,15 +32,16 @@ public class SortTest {
 	 * ++aÊÇ:1+a
 	 * a++ÊÇ:a+a
 	 */  
+	@Test
 	public void plus() {
 		Integer a=0;
 		int b=0;
 		//a = ++a;
 		a=a++;
-		//b=++b;
+		b=++b;
 		//b=b++;
-		System.out.println(a);
-		System.out.println(b);
+		System.out.println("a:"+a);
+		System.out.println("b:"+b);
 	}
 
 }
