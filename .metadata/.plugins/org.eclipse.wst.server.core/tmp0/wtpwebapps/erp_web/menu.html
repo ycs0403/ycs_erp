@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>菜单管理</title>
+
+<!-- 引入Easyui.js样式 -->
+<link rel="stylesheet" type="text/css"
+	href="ui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="ui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="ui/table.css">
+<script type="text/javascript" src="ui/jquery.min.js"></script>
+<script type="text/javascript" src="ui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="ui/locale/easyui-lang-zh_CN.js"></script>
+
+<!-- 序列化json插件，提取表单数据 -->
+<script src="adminjs/jquery.serializejson.min.js"></script>
+
+<!-- 前端代码的封装 -->
+<script type="text/javascript" src="js/common_js/crud.js"></script>
+
+<script type="text/javascript" src="js/menu.js"></script>
+
+<script type="text/javascript">
+	var name = "menu";
+
+</script>
+
+</head>
+
+<body>
+	<!------------------------------- Start --------------------------------->
+	<!-- 条件查询 -->
+
+
+	<!-- 数据查询列表 -->
+	<table id="grid"></table>
+
+	<!-- 添加修改部分 -->
+	<div id="editWindow" class="easyui-window" title="菜单编辑"
+		style="width: 300px; height: 200px" data-options="closed:true">
+		<form id="editForm">
+			<table>
+				<tr>
+					<td>菜单ID</td>
+					<td><input name="t.menuid"></td>
+				</tr>
+				<tr>
+					<td>菜单名称</td>
+					<td><input name="t.menuname"></td>
+				</tr>
+				<tr>
+					<td>图标</td>
+					<td><input name="t.icon"></td>
+				</tr>
+				<tr>
+					<td>URL</td>
+					<td><input name="t.url"></td>
+				</tr>
+				<tr>
+					<td>上级菜单ID</td>
+					<td><input name="t.pid"></td>
+				</tr>
+			</table>
+			<div align="center">
+				<button id="btnSave" type="button">保存</button>
+			</div>
+		</form>
+	</div>
+
+	<!------------------------------- End --------------------------------->
+</body>
+</html>

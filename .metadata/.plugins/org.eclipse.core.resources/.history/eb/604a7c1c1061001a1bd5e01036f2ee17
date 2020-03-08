@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Shiro过滤器工厂Bean，相当于间接的加载了9个内置过滤器 -->
+	<bean id="shiroFilter"
+		class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<!-- 安全管理器：核心组件 -->
+		<property name="securityManager" ref="securityManager" />
+		<!-- 认证相关配置：用户必须登录后才可以访问其他资源，如果没登录，就跳转到登录页面 -->
+		<property name="loginUrl" value="/login.html" />
+		<!-- 授权相关配置：当用户没有访问了某个没有访问权限的资源，如果没登录，就跳转到登录页面 -->
+		<property name="unauthorizedUrl" value="/error.html" />
+		<!-- 过滤器链的定义：用来配置页面的访问规则 -->
+		<property name="filterChainDefinitions">
+			<value>
+				<!-- 认证过滤器：anon(不认证也可以访问) -->
+				/error.html = anon
+				/login_*=anon
+				/*.action=authc
+				/*.html = authc
+				/*.=authc
+			</value>
+		</property>
+	</bean>
+
+	<!-- 安全管理器：核心组件（大脑） -->
+	<bean id="securityManager"
+		class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="erpRealm"></property>
+	</bean>
+
+	<!-- 自定义realm,实现登录认证与授权 -->
+	<bean id="erpRalm" class="cn.erp.realm.ErpRealm">
+		<property name="iEmpBiz" ref="iEmpBiz"></property>
+		<property name="iMenuBiz" ref="iMenuBiz"></property>
+	</bean>
+
+
+</beans>

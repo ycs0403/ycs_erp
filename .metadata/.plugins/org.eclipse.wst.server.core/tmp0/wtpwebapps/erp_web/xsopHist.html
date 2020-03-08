@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>工序完工记录表管理</title>
+
+<!-- 引入Easyui.js样式 -->
+<link rel="stylesheet" type="text/css"
+	href="ui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="ui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="ui/table.css">
+<script type="text/javascript" src="ui/jquery.min.js"></script>
+<script type="text/javascript" src="ui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="ui/locale/easyui-lang-zh_CN.js"></script>
+
+<!-- 序列化json插件，提取表单数据 -->
+<script src="adminjs/jquery.serializejson.min.js"></script>
+
+<!-- 前端代码的封装 -->
+<script type="text/javascript" src="js/common_js/crud.js"></script>
+
+<script type="text/javascript">
+	var name = 'xsopHist';//全局属性
+	
+	columns = [[
+		{
+			field : 'opDomain',
+			title : '域',
+			width : 100
+		},
+		{
+			field : 'opSite',
+			title : '地点',
+			width : 150
+		},
+		{
+			field : 'opLine',
+			title : '生产线',
+			width : 100
+		},
+		{
+			field : 'opWoNbr',
+			title : '加工单',
+			width : 150
+		},
+		{
+			field : 'opDate',
+			title : '账务日期',
+			width : 100
+		},
+		{
+			field : 'opShift',
+			title : '班次',
+			width : 150
+		},
+		{
+			field : 'opWoOp',
+			title : '工序',
+			width : 100
+		},
+		{
+			field : 'opPart',
+			title : '产品',
+			width : 150
+		},
+		{
+			field : 'opQtyWip',
+			title : '计划数',
+			width : 150
+		},
+		{
+			field : 'opQtyComp',
+			title : '本次完工数',
+			width : 100
+		},
+		{
+			field : 'opEngCode',
+			title : '运行环境',
+			width : 150
+		},
+		{
+			field : 'opUserid',
+			title : '工人',
+			width : 100
+		},
+		{
+			field : 'opTranDate',
+			title : '系统日期',
+			width : 150
+		},
+		{
+			field : '-',
+			title : '操作',
+			width : 100,
+			formatter : function(value, row, index) {
+				return "<a href='javascript:void(0)' onclick='edit("
+				+ row.uuid
+				+ ")'>修改</a><a href='javascript:void(0)' onclick='dele("
+				+ row.uuid + ")'>删除</a>";
+			}
+		}
+	]]
+</script>
+</head>
+
+<body>
+	<!------------------------------- Start --------------------------------->
+	<!-- 条件查询 -->
+
+
+	<!-- 数据查询列表 -->
+	<table id="grid"></table>
+
+	<!-- 添加修改部分 -->
+	<div id="editWindow" class="easyui-window" title="工序完工记录编辑"
+		style="width: 300px; height: 200px" data-options="closed:true">
+		<form id="editForm">
+			<table>
+				<tr>
+					<td>域</td>
+					<td><input name="t.opDomain"></td>
+				</tr>
+				<tr>
+					<td>地点</td>
+					<td><input name="t.opSite"></td>
+				</tr>
+				<tr>
+					<td>生产线</td>
+					<td><input name="t.opLine"></td>
+				</tr>
+				<tr>
+					<td>加工单</td>
+					<td><input name="t.opWoNbr"></td>
+				</tr>
+				<tr>
+					<td>账务日期</td>
+					<td><input name="t.opDate"></td>
+				</tr>
+				<tr>
+					<td>班次</td>
+					<td><input name="t.opShift"></td>
+				</tr>
+				<tr>
+					<td>工序</td>
+					<td><input name="t.opWoOp"></td>
+				</tr>
+				<tr>
+					<td>产品</td>
+					<td><input name="t.opPart"></td>
+				</tr>
+				<tr>
+					<td>计划数</td>
+					<td><input name="t.opQtyWip"></td>
+				</tr>
+				<tr>
+					<td>本次完工数</td>
+					<td><input name="t.opQtyComp"></td>
+				</tr>
+				<tr>
+					<td>运行环境</td>
+					<td><input name="t.opEngCode"></td>
+				</tr>
+				<tr>
+					<td>工人</td>
+					<td><input name="t.opUserid"></td>
+				</tr>
+				<tr>
+					<td>系统日期</td>
+					<td><input name="t.opTranDate"></td>
+				</tr>
+			</table>
+			<div align="center">
+				<button id="btnSave" type="button">保存</button>
+			</div>
+		</form>
+	</div>
+
+	<!------------------------------- End --------------------------------->
+</body>
+</html>

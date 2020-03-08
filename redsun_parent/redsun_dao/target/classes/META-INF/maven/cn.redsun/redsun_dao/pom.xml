@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>cn.redsun</groupId>
+    <artifactId>redsun_parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>redsun_dao</artifactId>
+  <name>redsun_dao</name>
+  <description>红日物流 BOS 系统-dao工程</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>cn.redsun</groupId>
+  		<artifactId>redsun_common</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>cn.redsun</groupId>
+  		<artifactId>redsun_entity</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
+</project>

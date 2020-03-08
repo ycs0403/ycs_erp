@@ -1,0 +1,8 @@
+#Tomcat publish data
+#Sun Mar 08 17:13:39 CST 2020
+org.eclipse.jst.j2ee.server\:erp_common=WEB-INF/lib/erp_common-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.jee.server\:/binary\:D\:\\Maven\\Repository\\org\\springframework\\spring-web\\4.2.4.RELEASE\\spring-web-4.2.4.RELEASE.jar=WEB-INF/lib/spring-web-4.2.4.RELEASE.jar
+org.eclipse.jst.j2ee.server\:erp_dao=WEB-INF/lib/erp_dao-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.j2ee.server\:erp_client=WEB-INF/lib/erp_client-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.j2ee.server\:erp_biz=WEB-INF/lib/erp_biz-0.0.1-SNAPSHOT.jar
+org.eclipse.jst.j2ee.server\:erp_entity=WEB-INF/lib/erp_entity-0.0.1-SNAPSHOT.jar

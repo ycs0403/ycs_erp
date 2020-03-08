@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+  <public publicId=" Hibernate/Hibernate Configuration DTD 3.0//EN" uri="file:///D:/hibernate-configuration.dtd"/>
+  <uri name="-//Hibernate/Hibernate Mapping DTD 3.0//EN" uri="file:///D:/hibernate-mapping-3.0.dtd"/>
+  <public publicId="-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" uri="file:///D:/struts-2.3.dtd"/>
+</catalog>

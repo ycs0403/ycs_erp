@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1581508409234_0" label="Java Main Sources" name="Java Main Sources">
+<item elementID="=erp_dao/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=erp_dao/src\/main\/resources=/maven.pomderived=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=erp_entity/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=erp_entity/src\/main\/resources=/maven.pomderived=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=erp_web/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=erp_web/src\/main\/resources=/maven.pomderived=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=erp_biz/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=erp_biz/src\/main\/resources=/maven.pomderived=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=erp_common/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=erp_test/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.internal.ui.DynamicSourcesWorkingSet" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1581508409259_1" label="Java Test Sources" name="Java Test Sources"/>
+<workingSet editPageId="org.eclipse.ui.resourceWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1581508602625_3" label="erp_parent" name="erp_parent">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/erp_web" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/erp_entity" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/erp_parent" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/erp_client" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/erp_dao" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/erp_common" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/erp_test" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/erp_biz" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1581508421770_2" label="Window Working Set" name="Aggregate for window 1581508421769"/>
+</workingSetManager>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>商品管理</title>
+
+<!-- 引入Easyui.js样式 -->
+<link rel="stylesheet" type="text/css"
+	href="ui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="ui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="ui/table.css">
+<script type="text/javascript" src="ui/jquery.min.js"></script>
+<script type="text/javascript" src="ui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="ui/locale/easyui-lang-zh_CN.js"></script>
+
+<!-- 序列化json插件，提取表单数据 -->
+<script src="adminjs/jquery.serializejson.min.js"></script>
+
+<!-- 前端代码的封装 -->
+<script type="text/javascript" src="js/common_js/crud.js"></script>
+<script type="text/javascript" src="js/common_js/date.js"></script>
+<script type="text/javascript" src="js/goods.js"></script>
+
+<script type="text/javascript">
+	var name = 'goods';//全局属性
+	
+</script>
+</head>
+
+<body>
+	<!------------------------------- Start --------------------------------->
+	<!-- 条件查询 -->
+	<form id="searchForm">
+		商品类型：<input value="全部" name="t.goodsType.uuid" class="easyui-combobox"
+			style="width: 100px;"
+			data-options="textField:'name',valueField:'uuid',url:'goodsType_getList.action',required:true,missingMessage:'请选择商品类型'">
+		进货价：<input name="t1.inprice" style="width: 100px" class="easyui-numberbox" data-options="precision:2,min:0,prefix:'￥'">
+		至
+		        <input name="t1.outprice" style="width: 100px" class="easyui-numberbox" data-options="precision:2,min:0,prefix:'￥'">：出货价
+
+		<button id="btnSearch" type="button">查询</button>
+	</form>
+
+	<!-- 数据查询 -->
+	<table id="grid"></table>
+
+	<!-- 添加修改部分 -->
+	<div id="editWindow" class="easyui-window" title="商品编辑"
+		style="width: 270px; height: 280px" data-options="closed:true">
+		<form id="editForm">
+			<input type="hidden" name="t.uuid">
+			<table>
+				<tr>
+					<td>商品名称：</td>
+					<td><input name="t.name" class="easyui-validatebox"
+						data-options="required:true" missingMessage="商品名称必须填写"></td>
+				</tr>
+				<tr>
+					<td>产地：</td>
+					<td><input name="t.origin"></td>
+				</tr>
+				<tr>
+					<td>厂家：</td>
+					<td><input name="t.producer"></td>
+				</tr>
+				<tr>
+					<td>计量单位：</td>
+					<td><input name="t.unit"></td>
+				</tr>
+				<tr>
+					<td>进货价格：</td>
+					<td><input name="t.inprice"></td>
+				</tr>
+				<tr>
+					<td>销售价格：</td>
+					<td><input name="t.outprice"></td>
+				</tr>
+				<tr>
+					<td>商品类型：</td>
+					<td><input value="全部" name="t.goodsType.uuid"
+						class="easyui-combobox"
+						data-options="textField:'name',valueField:'uuid',url:'goodsType_getList.action',required:true,missingMessage:'请选择商品类型'"></td>
+				</tr>
+			</table>
+			<br />
+			<div align="center">
+				<button id="btnSave" type="button">保存</button>
+			</div>
+		</form>
+	</div>
+	<!------------------------------- End --------------------------------->
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>角色管理</title>
+
+<!-- 引入Easyui.js样式 -->
+<link rel="stylesheet" type="text/css"
+	href="ui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="ui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="ui/table.css">
+<script type="text/javascript" src="ui/jquery.min.js"></script>
+<script type="text/javascript" src="ui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="ui/locale/easyui-lang-zh_CN.js"></script>
+
+<!-- 序列化json插件，提取表单数据 -->
+<script src="adminjs/jquery.serializejson.min.js"></script>
+
+<!-- 前端代码的封装 -->
+<script type="text/javascript" src="js/common_js/crud.js"></script>
+<!-- <script type="text/javascript" src="js/role.js"></script> -->
+
+<script type="text/javascript">
+	var name = 'role';//全局属性
+	
+	columns = [[
+		{
+			field : 'uuid',
+			title : '编号',
+			width : 100
+		},
+		{
+			field : 'name',
+			title : '角色名称',
+			width : 150
+		},
+		{
+			field : '-',
+			title : '操作',
+			width : 100,
+			formatter : function(value, row, index) {
+				return "<a href='javascript:void(0)' onclick='edit("
+				+ row.uuid
+				+ ")'>修改</a><a href='javascript:void(0)' onclick='dele("
+				+ row.uuid + ")'>删除</a>";
+			}
+		}
+	]]
+</script>
+</head>
+
+<body>
+	<!------------------------------- Start --------------------------------->
+	<!-- 条件查询 -->
+
+
+	<!-- 数据查询列表 -->
+	<table id="grid"></table>
+
+	<!-- 添加修改部分 -->
+	<div id="editWindow" class="easyui-window" title="角色编辑"
+		style="width: 300px; height: 200px" data-options="closed:true">
+		<form id="editForm">
+			<table>
+				<tr>
+					<td>编号</td>
+					<td><input name="t.uuid"></td>
+				</tr>
+				<tr>
+					<td>名称</td>
+					<td><input name="t.name"></td>
+				</tr>
+			</table>
+			<div align="center">
+				<button id="btnSave" type="button">保存</button>
+			</div>
+		</form>
+	</div>
+
+	<!------------------------------- End --------------------------------->
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop.xsd
+		">
+		
+	<!-- spring 默认scope 是单例模式，这样只会创建一个Action对象，每次访问都是同一个Action对象，数据不安全
+                注入action scope="prototype"配置多例模式，在原来的单例模式上提高安全性 -->
+	<!-- 运单 -->
+	<bean id="waybillAction" class="cn.redsun.action.WaybillAction"
+		scope="prototype">
+		<property name="iWaybillBiz" ref="iWaybillBiz"></property>
+	</bean>
+
+	<!-- 运单详细 -->
+	<bean id="waybilldetailAction" class="cn.redsun.action.WaybilldetailAction"
+		scope="prototype">
+		<property name="iWaybilldetailBiz" ref="iWaybilldetailBiz"></property>
+	</bean>
+	
+</beans>
+	
